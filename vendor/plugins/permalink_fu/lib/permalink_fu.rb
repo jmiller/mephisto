@@ -6,7 +6,7 @@ module PermalinkFu
     attr_accessor :translation_from
     
     def escape(str)
-      s = Iconv.iconv(translation_to + '//IGNORE', translation_from, str).to_s
+      s = Iconv.iconv(translation_to, translation_from, str).to_s
       s.gsub!(/\W+/, ' ') # all non-word chars to spaces
       s.strip!            # ohh la la
       s.downcase!         #
